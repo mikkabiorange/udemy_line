@@ -23,5 +23,4 @@ jobs:
           pip install tweepy
       - name: Run script
         run: |
-          # main.pyの実行
           python qwe.py
