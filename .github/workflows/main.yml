@@ -24,4 +24,4 @@ jobs:
       - name: Run script
         run: |
           # main.pyの実行
-          python env python.py
+          python qwe.py
