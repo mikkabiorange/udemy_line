@@ -24,4 +24,4 @@ jobs:
       - name: Run script
         run: |
           # main.pyの実行
-          python main.py
+          python env python.py
