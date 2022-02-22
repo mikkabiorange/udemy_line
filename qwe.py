@@ -18,7 +18,14 @@ import requests
 # In[ ]:
 
 
-requests.post(url, '123', data=content)
+auth={"Authorization":"Bearer "+token}
+content={"message":'123'}
+
+
+# In[ ]:
+
+
+requests.post(url, headers=auth, data=content)
 
 # %%
 
