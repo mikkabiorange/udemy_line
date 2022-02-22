@@ -12,15 +12,14 @@ url="https://notify-api.line.me/api/notify"
 
 
 import requests
-import time
 import datetime
 
 
 # In[ ]:
-time=datetime.datetime.now()
-
+dt = datetime.datetime.today() 
+d = dt.date()
 auth={"Authorization":"Bearer "+token}
-content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'+time}
+content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'+d}
 
 
 # In[ ]:
