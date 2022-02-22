@@ -26,7 +26,7 @@ dt.isoformat() # -> 2021-04-14T01:57:42.809986+09:00
 dt.isoformat(timespec="seconds")  # -> 2021-04-14T01:57:42+09:00
 tstr = dt.strftime('%Y/%m/%d')
 content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'+tstr}
-
+auth={"Authorization":"Bearer "+token}
 
 # In[ ]:
 
