@@ -15,16 +15,7 @@ import requests
 
 
 
-# In[ ]:
 
-
-tenki_url="https://weather.yahoo.co.jp/weather/jp/22/5040.html"
-
-
-# In[ ]:
-
-
-Response=requests.get(tenki_url)
 
 
 # In[ ]:
@@ -33,13 +24,10 @@ Response=requests.get(tenki_url)
 Response.text
 
 
-
-
-
 # In[ ]:
 
 
-requests.post('123')
+requests.post(url, '123', data=content)
 
 # %%
 
