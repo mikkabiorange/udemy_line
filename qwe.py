@@ -12,10 +12,12 @@ url="https://notify-api.line.me/api/notify"
 
 
 import requests
-import datetime
+
 
 
 # In[ ]:
+
+import datetime
 dt = datetime.datetime.today() 
 d = dt.date()
 auth={"Authorization":"Bearer "+token}
