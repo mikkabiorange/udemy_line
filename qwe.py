@@ -17,9 +17,9 @@ import requests
 
 import datetime
 dt = datetime.date.today()
-
+tstr = tdatetime.strftime('%Y/%m/%d')
 auth={"Authorization":"Bearer "+token}
-content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'+dt}
+content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'+tstr}
 
 
 # In[ ]:
