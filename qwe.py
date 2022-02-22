@@ -15,11 +15,16 @@ import requests
 
 # In[ ]:
 
-import datetime
-dt = datetime.date.today()
-tstr = dt.strftime('%Y/%m/%d')
-auth={"Authorization":"Bearer "+token}
-content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'+tstr}
+from datetime import datetime, timedelta, timezone
+# 日本時間のタイムゾーンを定義
+JST = timezone(timedelta(hours=+9), 'JST')
+# Pythonが動くサーバーのタイムゾーン設定に左右されずに日本時間の現在時刻を取得
+dt = datetime.now(JST)
+# ISO8601形式で表示
+dt.isoformat() # -> 2021-04-14T01:57:42.809986+09:00
+# 小数点以下の秒数が邪魔なので秒数までを表示する
+dt.isoformat(timespec="seconds")  # -> 2021-04-14T01:57:42+09:00
+content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'+dt}
 
 
 # In[ ]:
