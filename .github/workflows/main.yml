@@ -1,6 +1,5 @@
 
 name: test_line_notify
-
 on:
   schedule:
     - cron: '30 * * * *'
