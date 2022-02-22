@@ -13,10 +13,6 @@ url="https://notify-api.line.me/api/notify"
 
 import requests
 
-# In[ ]:
-
-
-from bs4 import BeautifulSoup
 
 
 # In[ ]:
