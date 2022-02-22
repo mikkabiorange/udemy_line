@@ -19,7 +19,7 @@ import requests
 
 
 auth={"Authorization":"Bearer "+token}
-content={"message":'123'}
+content={"message":'坂本様の手下のpythonです。よろしくお願いします。'}
 
 
 # In[ ]:
