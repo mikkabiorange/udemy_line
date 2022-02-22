@@ -16,10 +16,10 @@ import requests
 
 
 # In[ ]:
-
+time=datetime.datetime.now()
 
 auth={"Authorization":"Bearer "+token}
-content={"message":'坂本様の手下のpythonです。よろしくお願いします。'}
+content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'+time}
 
 
 # In[ ]:
