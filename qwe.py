@@ -37,16 +37,7 @@ Response=requests.get(tenki_url)
 Response.text
 
 
-# In[ ]:
 
-
-html=BeautifulSoup(Response.text,"html.parser")
-
-
-# In[ ]:
-
-
-forecast=html.find_all("div",attrs={"class":"forecastCity"})[0]
 
 
 # In[ ]:
@@ -60,17 +51,6 @@ tomorrow=forecast.find_all("div")[1]
 
 weather=tomorrow.find_all("p",attrs={"class":"pict"})[0].text.replace("\n","").replace(" ","")
 
-
-# In[ ]:
-
-
-high=tomorrow.find_all("li")[0].text
-
-
-# In[ ]:
-
-
-low=tomorrow.find_all("li")[1].text
 
 
 # In[ ]:
