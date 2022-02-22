@@ -10,9 +10,7 @@ url="https://notify-api.line.me/api/notify"
 
 # In[ ]:
 
-
 import requests
-
 
 
 # In[ ]:
