@@ -17,9 +17,11 @@ import requests
 
 # In[ ]:
 
-
+import datetime
+dt = datetime.date.today()
+d = dt.date()
 auth={"Authorization":"Bearer "+token}
-content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'}
+content={"message":'坂本様の手下のpythonです。よろしくお願いします。一時間に一度実行されます。只今の時刻、'+d}
 
 
 # In[ ]:
