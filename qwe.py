@@ -15,15 +15,6 @@ import requests
 
 
 
-
-
-
-# In[ ]:
-
-
-Response.text
-
-
 # In[ ]:
 
 
