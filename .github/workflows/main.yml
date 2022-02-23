@@ -1,8 +1,7 @@
 
 name: test_line_notify
 on:
-  schedule:
-    - cron:  '0 23 * * *'
+  push:
 jobs:
   build:
     runs-on: ubuntu-latest
