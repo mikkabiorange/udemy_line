@@ -1,16 +1,13 @@
 name: LINE
 
-# 発火タイミング
 on:
   on:
   push:
 
 jobs:
   build:
-    # Ubuntuの最新版環境内で処理
     runs-on: ubuntu-latest
 
-    # 実行する処理＆コマンド指定
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.10.2
