@@ -1,1 +1,27 @@
+name: LINE
 
+# 発火タイミング
+on:
+  on:
+  push:
+
+jobs:
+  build:
+    # Ubuntuの最新版環境内で処理
+    runs-on: ubuntu-latest
+
+    # 実行する処理＆コマンド指定
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10.2
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.10.2
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install tweepy
+      - name: Run script
+        run: |
+          # main.pyの実行
+          python env python.py
