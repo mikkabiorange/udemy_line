@@ -17,4 +17,4 @@ jobs:
           pip install tweepy
       - name: Run script
         run: |
-          python qwe.py
+          python Untitled.ipynb
