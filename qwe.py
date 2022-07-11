@@ -1,106 +1,50 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 token="4z5ABFP4UWBFxEoLaU3ZvT4V5fkVLxx5vuSGUsvZKSM"
 url="https://notify-api.line.me/api/notify"
-
-
-# In[ ]:
-
-
 from bs4 import BeautifulSoup
-
-
-# In[ ]:
-
+import requests
 
 tenki_url="https://weather.yahoo.co.jp/weather/jp/22/5040.html"
 
+#　天気取得
+def Weather(AreaCode):
+    url = "https://weather.yahoo.co.jp/weather/jp/21/" + str(AreaCode) + ".html"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    rs = soup.find(class_='forecastCity')
+    rs = [i.strip() for i in rs.text.splitlines()]
+    rs = [i for i in rs if i != ""]
+    print(rs[0] + "の天気は" + rs[1] + "、明日の天気は" + rs[19] + "です。")
+    return "岐阜 "+str(rs[0]) + "の天気は" + str(rs[1]) + "、明日の天気は" + str(rs[2]) + "です。"
 
-# In[ ]:
+#　天気取得
+def Weather2(AreaCode):
+    url = "https://weather.yahoo.co.jp/weather/jp/33/" + str(AreaCode) + ".html"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    rs = soup.find(class_='forecastCity')
+    rs = [i.strip() for i in rs.text.splitlines()]
+    rs = [i for i in rs if i != ""]
+    print(rs[0] + "の天気は" + rs[1] + "、明日の天気は" + rs[19] + "です。")
+    return "岡山 "+str(rs[0]) + "の天気は" + str(rs[1]) + "、明日の天気は" + str(rs[2]) + "です。"
 
+message=str(Weather(5210))
 
-Response=requests.get(tenki_url)
+message=message+"\r\n"+str(Weather2(6610))
 
+# 名言取得
+def saying_text():
+    url = 'http://www.meigensyu.com/quotations/view/random'
+    res = requests.get(url)
+    html = res.text
+    soup = BeautifulSoup(html, 'html.parser')
+    saying = soup.find('div',class_='text')
+    saying = [i.strip() for i in saying.text.splitlines()]
+    saying = [i for i in saying if i != ""]
+    return saying
 
-# In[ ]:
-
-
-Response.text
-
-
-# In[ ]:
-
-
-html=BeautifulSoup(Response.text,"html.parser")
-
-
-# In[ ]:
-
-
-forecast=html.find_all("div",attrs={"class":"forecastCity"})[0]
-
-
-# In[ ]:
-
-
-tomorrow=forecast.find_all("div")[1]
-
-
-# In[ ]:
-
-
-weather=tomorrow.find_all("p",attrs={"class":"pict"})[0].text.replace("\n","").replace(" ","")
-
-
-# In[ ]:
-
-
-high=tomorrow.find_all("li")[0].text
-
-
-# In[ ]:
-
-
-low=tomorrow.find_all("li")[1].text
-
-
-# In[ ]:
-
-
-rain_06=tomorrow.find_all("td")[4].text
-rain_612=tomorrow.find_all("td")[5].text
-rain_1218=tomorrow.find_all("td")[6].text
-rain_1824=tomorrow.find_all("td")[7].text
-
-
-# In[ ]:
-
-
-message="""
-明日の天気は{}
-a最高気温は{}
-最低気温は{}
-0-6時:{}
-6-12時:{}
-12-18時:{}
-18-24時:{}
-""".format(weather,high,low,rain_06,rain_612,rain_1218,rain_1824)
-
-# In[ ]:
-
+qwe2=str(saying_text())
 
 auth={"Authorization":"Bearer "+token}
-content={"message":message}
-
-
-# In[ ]:
-
+content={"message":message+"\r\n""今日の名言"+"\r\n"+qwe2}
 
 requests.post(url, headers=auth, data=content)
-
-# %%
-
